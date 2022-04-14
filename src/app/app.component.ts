@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'a11y-p1';
+
+  public yesNoAnswer = 'no'
 }
