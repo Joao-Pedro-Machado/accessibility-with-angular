@@ -9,6 +9,9 @@ import { KeyboardMangedItemDirective } from 'src/app/shared/directives/keyboard-
     KeyboardMangedItemDirective
   ],
   imports: [CommonModule],
-  exports: [KeyboardManagerDirective]
+  exports: [
+    KeyboardManagerDirective,
+    KeyboardMangedItemDirective
+  ]
 })
 export class KeyboardManagerModule {}
