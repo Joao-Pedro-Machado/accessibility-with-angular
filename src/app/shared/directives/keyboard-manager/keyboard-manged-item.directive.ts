@@ -1,6 +1,16 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appKmItem]',
 })
-export class KeyboardMangedItemDirective {}
+export class KeyboardMangedItemDirective {
+  constructor(private elementRef: ElementRef<HTMLElement>) {}
+
+  public focus(): void {
+    this.elementRef.nativeElement.focus();
+  }
+
+  public isFocused(): boolean {
+    return this.elementRef.nativeElement === document.activeElement;
+  }
+}
