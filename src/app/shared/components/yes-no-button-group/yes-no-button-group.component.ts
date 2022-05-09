@@ -1,3 +1,4 @@
+import { UniqueIdService } from './../../services/unique-id.service';
 import {
   Component,
   EventEmitter,
@@ -27,13 +28,17 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
   @Output() public valueChange = new EventEmitter<string>();
 
+  public id: string = null
+
   public options = YesNoButtonGroupOptions;
 
   public onChange = (value: string) => {};
 
   public onTouched = () => {};
 
-  constructor() {}
+  constructor(private uniqueIdService: UniqueIdService) {
+    this.id = uniqueIdService.generateUniqueIdWithPrefix('yes-no-button-group')
+  }
 
   ngOnInit(): void {}
 

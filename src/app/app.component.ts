@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'a11y-p1';
+  title = 'Acessibilidade com Angular';
 
   public form: FormGroup = null;
 
