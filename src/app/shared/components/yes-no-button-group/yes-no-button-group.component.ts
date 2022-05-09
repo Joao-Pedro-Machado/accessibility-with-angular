@@ -22,22 +22,19 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
+  @Input() public disabled = false;
   @Input() public value: string = null;
-
   @Input() public label = '';
 
   @Output() public valueChange = new EventEmitter<string>();
 
-  public id: string = null
-
+  public id: string = null;
   public options = YesNoButtonGroupOptions;
-
   public onChange = (value: string) => {};
-
   public onTouched = () => {};
 
   constructor(private uniqueIdService: UniqueIdService) {
-    this.id = uniqueIdService.generateUniqueIdWithPrefix('yes-no-button-group')
+    this.id = uniqueIdService.generateUniqueIdWithPrefix('yes-no-button-group');
   }
 
   ngOnInit(): void {}
@@ -45,7 +42,7 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   public writeValue(value: string): void {
     this.value = value;
     this.onChange(this.value);
-    this.valueChange.emit(this.value)
+    this.valueChange.emit(this.value);
   }
 
   public registerOnChange(fn: (value: string) => void): void {
@@ -57,11 +54,11 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   }
 
   public setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    this.disabled = isDisabled;
   }
 
   public activate(value: string) {
-    this.writeValue(value)
+    this.writeValue(value);
   }
 }
 
